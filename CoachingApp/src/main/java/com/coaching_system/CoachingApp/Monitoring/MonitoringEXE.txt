@@ -1,0 +1,40 @@
+ Student Before Method called GetAllStudent CurrentTime 2025-03-07T04:18:28.774760093
+ Student Method called GetAllStudent CurrentTime 2025-03-07T04:18:29.749422654 Running Fine 
+ Student Before Method called DeleteStudent CurrentTime 2025-03-07T04:23:01.686189762
+ Student Method called DeleteStudent CurrentTime 2025-03-07T04:23:02.320770786 Running Fine 
+ Student Before Method called GetAllStudent CurrentTime 2025-03-07T04:23:20.254951411
+ Student Method called GetAllStudent CurrentTime 2025-03-07T04:23:20.273256671 Running Fine 
+ Before Admin call Method Name:-  SaveOrUpdate CurrentTime 2025-03-07T04:31:31.979699191
+ After Everything(Fine) Admin call Method Name:-  SaveOrUpdate CurrentTime 2025-03-07T04:31:32.848091139
+ Before Admin call Method Name:-  SaveOrUpdate CurrentTime 2025-03-07T04:32:03.870406019
+ After Everything(Fine) Admin call Method Name:-  SaveOrUpdate CurrentTime 2025-03-07T04:32:03.945845295
+ Before Admin call Method Name:-  SaveOrUpdate CurrentTime 2025-03-07T04:32:25.586405385
+ After Everything(Fine) Admin call Method Name:-  SaveOrUpdate CurrentTime 2025-03-07T04:32:25.636729587
+ Before Admin call Method Name:-  SaveOrUpdate CurrentTime 2025-03-07T04:32:59.061184266
+ After Everything(Fine) Admin call Method Name:-  SaveOrUpdate CurrentTime 2025-03-07T04:32:59.109812541
+ Student Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:52:37.561419546
+ Student Method called SaveOrUpdate CurrentTime 2025-03-07T04:52:38.203797951 Running Fine 
+ Student Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:53:00.349728432
+ Student Method called SaveOrUpdate CurrentTime 2025-03-07T04:53:00.427964131 Running Fine 
+ Student Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:53:22.242908482
+ Student Method called SaveOrUpdate CurrentTime 2025-03-07T04:53:22.367007883 Running Fine 
+ Student Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:53:40.287208892
+ Student Method called SaveOrUpdate CurrentTime 2025-03-07T04:53:40.333953376 Running Fine 
+ Student Before Method called GetAllStudent CurrentTime 2025-03-07T04:53:52.710715433
+ Student Method called GetAllStudent CurrentTime 2025-03-07T04:53:52.747573602 Running Fine 
+ Teacher Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:55:45.685370804
+ Teacher Method called SaveOrUpdate CurrentTime 2025-03-07T04:55:45.732896514 Running Fine 
+ Teacher Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:56:06.213330425
+ Teacher Method called SaveOrUpdate CurrentTime 2025-03-07T04:56:06.299109239 Running Fine 
+ Teacher Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:56:30.656609756
+ Teacher Method called SaveOrUpdate CurrentTime 2025-03-07T04:56:30.713858497 Running Fine 
+ Teacher Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:56:54.429135139
+ Teacher Method called SaveOrUpdate CurrentTime 2025-03-07T04:56:54.470208041 Running Fine 
+ Teacher Before Method called SaveOrUpdate CurrentTime 2025-03-07T04:57:12.578575053
+ Teacher Method called SaveOrUpdate CurrentTime 2025-03-07T04:57:12.632689729 Running Fine 
+ Student Before Method called GetAllStudent CurrentTime 2025-03-07T16:21:54.779897680
+ Student Method called GetAllStudent CurrentTime 2025-03-07T16:21:55.591631655 Running Fine 
+ Teacher Before Method called GetAllStudent CurrentTime 2025-03-07T16:22:20.847038780
+ Teacher Method called GetAllStudent CurrentTime 2025-03-07T16:22:20.900025658 Running Fine 
+ Before Admin call Method Name:-  GetTeacherByName CurrentTime 2025-03-07T16:23:23.323788177
+ After Everything(Fine) Admin call Method Name:-  GetTeacherByName CurrentTime 2025-03-07T16:23:23.530533053

@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface StudentRepo extends JpaRepository<StudentNewTable, Integer> {
+public interface StudentRepo extends JpaRepository<StudentNewTable, String> {
 
+    StudentNewTable findByUsername(String username);
     List<StudentNewTable> findByName(String name);
 }

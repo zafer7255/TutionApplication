@@ -17,53 +17,23 @@ public class TeacherController {
 
     @Autowired
     private TeacherService teacherService;
-    @GetMapping("/getallteachers")
-    public ResponseEntity<List<TeacherNewTable>> GetAllStudent()
-    {
-        List<TeacherNewTable> teachers = teacherService.GetAllStudent();
-        if (teachers.size() > 0 && teachers.get(0).getId() != 0)
-          return new ResponseEntity<>(teachers,HttpStatus.FOUND);
-        else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
 
-    @GetMapping("/getteacherbyname/{name}")
-    public ResponseEntity<List<TeacherNewTable>> GetTeacherByName(@PathVariable String name)
-    {
-        List<TeacherNewTable> teachers = teacherService.GetTeacherByName(name);
-        if (teachers.get(0).getId() != 0)
-          return new ResponseEntity<>(teachers,HttpStatus.FOUND);
-        else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
 
-    @GetMapping("/getteacherbyid/{id}")
-    public ResponseEntity<TeacherNewTable> GetTeacherById(@PathVariable int id)
+    @GetMapping("/getteacherbyusername/{username}")
+    public ResponseEntity<TeacherNewTable> GetTeacherById(@PathVariable String username)
     {
-        TeacherNewTable teacher = teacherService.GetTeacherById(id);
-        if (teacher.getId() != 0)
+        TeacherNewTable teacher = teacherService.GetTeacherByUsername(username);
+        if (teacher.getUsername() != null)
           return new ResponseEntity<>(teacher, HttpStatus.FOUND);
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
-    @PostMapping("/postteacher")
-    public ResponseEntity<?> PostTeacher(@RequestPart TeacherNewTable teacher, @RequestPart MultipartFile imageFile) {
-
-        try {
-            String result = teacherService.SaveOrUpdate(teacher , imageFile);
-            return new ResponseEntity<>(result,HttpStatus.ACCEPTED);
-        } catch (IOException e)
-        {
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 
     @PutMapping("/updateteacher")
     public ResponseEntity<?> UpdateTeacher(@RequestBody TeacherNewTable teacher , @RequestPart MultipartFile imageFile)
     {
         try {
-            String result = teacherService.SaveOrUpdate(teacher , imageFile);
+            String result = teacherService.Update(teacher , imageFile);
             return new ResponseEntity<>(result,HttpStatus.ACCEPTED);
         } catch (IOException e)
         {
@@ -71,10 +41,10 @@ public class TeacherController {
         }
     }
 
-    @DeleteMapping("/deleteteacher/{id}")
-    public ResponseEntity<?> DeleteTeacher(@PathVariable int id)
+    @DeleteMapping("/deleteteacher/{username}")
+    public ResponseEntity<?> DeleteTeacher(@PathVariable String username)
     {
-        String result = teacherService.DeleteTeacher(id);
+        String result = teacherService.DeleteTeacher(username);
         if (result == "Deleted Success")
             return new ResponseEntity<>(result,HttpStatus.OK);
         else

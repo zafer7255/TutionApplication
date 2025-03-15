@@ -38,3 +38,9 @@
  Teacher Method called GetAllStudent CurrentTime 2025-03-07T16:22:20.900025658 Running Fine 
  Before Admin call Method Name:-  GetTeacherByName CurrentTime 2025-03-07T16:23:23.323788177
  After Everything(Fine) Admin call Method Name:-  GetTeacherByName CurrentTime 2025-03-07T16:23:23.530533053
+ Student Before Method called GetAllStudent CurrentTime 2025-03-15T16:28:02.291975700
+ Student Method called GetAllStudent CurrentTime 2025-03-15T16:28:02.620703785 Running Fine 
+ Student Before Method called GetAllStudent CurrentTime 2025-03-15T16:28:51.666571458
+ Student Method called GetAllStudent CurrentTime 2025-03-15T16:28:51.696497399 Running Fine 
+ Student Before Method called GetAllStudent CurrentTime 2025-03-16T02:15:06.399536772
+ Student Method called GetAllStudent CurrentTime 2025-03-16T02:15:06.433440473 Running Fine 

@@ -24,33 +24,33 @@ public class StudentService {
         return studentRepo.findByName(name);
     }
 
-    public StudentNewTable GetStudentById(int id)
+    public StudentNewTable GetStudentById(String username)
     {
-        return studentRepo.findById(id).orElse(new StudentNewTable());
+        StudentNewTable st = studentRepo.findByUsername(username);
+        return st == null ? new StudentNewTable() : st;
     }
 
-    public String SaveOrUpdate(StudentNewTable student , MultipartFile image) throws IOException {
-        List<StudentNewTable> students = studentRepo.findAll();
-        for (StudentNewTable s : students)
+    public String Update(StudentNewTable student , MultipartFile image) throws IOException {
+
+        StudentNewTable st = studentRepo.findByUsername(student.getUsername());
+        if(st == null)
         {
-            if(s.getRollNo() == student.getRollNo())
-            {
-                s.setAddress(student.getAddress());
-                s.setName(student.getName());
-                s.setPhoneNo(student.getPhoneNo());
-                s.setSchoolStandard(student.getSchoolStandard());
-                s.setImageName(image.getOriginalFilename());
-                s.setImageType(image.getContentType());
-                s.setImageData(image.getBytes());
-                s.setSubjects(student.getSubjects());
-                return "Student is already exist UPDATED...";
-            }
+            return "username not found";
         }
-        student.setImageName(image.getOriginalFilename());
-        student.setImageType(image.getContentType());
-        student.setImageData(image.getBytes());
-        studentRepo.save(student);
-        return "Student saved";
+        st.setName(student.getName());
+        st.setSubjects(student.getSubjects());
+        st.setSchoolStandard(student.getSchoolStandard());
+        st.setAddress(student.getAddress());
+        st.setEmail(student.getEmail());
+        st.setPhoneNo(student.getPhoneNo());
+        st.setParentsNo(student.getParentsNo());
+
+        if (image != null && !image.isEmpty()) {
+            st.setImageName(image.getOriginalFilename());
+            st.setImageType(image.getContentType());
+            st.setImageData(image.getBytes());
+        }
+        return "Updated";
     }
 
     public String DeleteStudent(int roll) {

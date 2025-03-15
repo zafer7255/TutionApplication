@@ -16,7 +16,8 @@ import java.util.List;
 public class Admin {
 
     @Id
-    private int adminId;
+    private String username;
+    private String password;
     private String name;
     private String phoneNo;
     private String address;

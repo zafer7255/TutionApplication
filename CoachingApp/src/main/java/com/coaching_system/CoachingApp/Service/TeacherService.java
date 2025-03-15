@@ -21,36 +21,35 @@ public class TeacherService {
 
         return teacherRepo.findByName(name);
     }
-    public TeacherNewTable GetTeacherById(int id) {
-        return teacherRepo.findById(id).orElse(new TeacherNewTable());
+    public TeacherNewTable GetTeacherByUsername(String username) {
+        TeacherNewTable t = teacherRepo.findByUsername(username);
+        return t == null ? new TeacherNewTable() : t;
     }
 
-    public String SaveOrUpdate(TeacherNewTable teacher , MultipartFile image) throws IOException {
-        List<TeacherNewTable> teachers = teacherRepo.findAll();
-        for (TeacherNewTable t : teachers)
+    public String Update(TeacherNewTable teacher , MultipartFile image) throws IOException {
+
+        TeacherNewTable t = teacherRepo.findByUsername(teacher.getUsername());
+        if(t == null)
         {
-            if (t.getId() == teacher.getId())
-            {
-                t.setAddress(teacher.getAddress());
-                t.setName(teacher.getName());
-                t.setPhoneNo(teacher.getPhoneNo());
-                t.setSubjectsTeach(teacher.getSubjectsTeach());
-                t.setImageName(image.getOriginalFilename());
-                t.setImageType(image.getContentType());
-                t.setImageData(image.getBytes());
-                return "Teacher Already exist UPDATED...";
-            }
+            return "username not found";
         }
-        teacher.setImageName(image.getOriginalFilename());
-        teacher.setImageType(image.getContentType());
-        teacher.setImageData(image.getBytes());
-        teacherRepo.save(teacher);
-        return "Teacher Saved";
+        t.setName(teacher.getName());
+        t.setSubjectsTeach(teacher.getSubjectsTeach());
+        t.setAddress(teacher.getAddress());
+        t.setEmail(teacher.getEmail());
+        t.setPhoneNo(teacher.getPhoneNo());
+
+        if (image != null && !image.isEmpty()) {
+            t.setImageName(image.getOriginalFilename());
+            t.setImageType(image.getContentType());
+            t.setImageData(image.getBytes());
+        }
+        return " Updated ";
     }
-    public String DeleteTeacher(int id) {
+    public String DeleteTeacher(String username) {
         for (TeacherNewTable t : teacherRepo.findAll())
         {
-            if (t.getId() == id)
+            if (t.getUsername() == username)
             {
                 teacherRepo.delete(t);
                 return "Deleted Success";

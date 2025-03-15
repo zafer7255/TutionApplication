@@ -18,7 +18,8 @@ import java.util.List;
 @Scope("prototype")
 public class TeacherNewTable {
     @Id
-    private int id;
+    private String username;
+    private String password;
     private String name;
     private String phoneNo;
     private String address;

@@ -17,52 +17,22 @@ public class StudentController {
 
     @Autowired
     StudentService studentService;
-    @GetMapping("/getallstudents")
-    public ResponseEntity<List<StudentNewTable>> GetAllStudents()
-    {
-        List<StudentNewTable> students = studentService.GetAllStudent();
-        if(students.size() > 0 && students.get(0).getRollNo() != 0)
-            return new ResponseEntity<>(students,HttpStatus.FOUND);
-        else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
 
-    @GetMapping("/getstudentbyname/{name}")
-    public ResponseEntity<List<StudentNewTable>> GetStudentByName(@PathVariable String name)
+    @GetMapping("getstudentbyusername/{username}")
+    public ResponseEntity<StudentNewTable> GetStudentById(@PathVariable String username)
     {
-        List<StudentNewTable> students = studentService.GetStudentByName(name);
-        if(students.size() > 0 && students.get(0).getRollNo() != 0)
-             return new ResponseEntity<>(students,HttpStatus.FOUND);
-        else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-    @GetMapping("getstudentbyid/{id}")
-    public ResponseEntity<StudentNewTable> GetStudentById(@PathVariable int id)
-    {
-            StudentNewTable student = studentService.GetStudentById(id);
+            StudentNewTable student = studentService.GetStudentById(username);
             if(student.getRollNo() != 0)
                return new ResponseEntity<>(student,HttpStatus.FOUND);
             else
                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping("/poststudents")
-    public ResponseEntity<?> PostStudents(@RequestPart StudentNewTable student , @RequestPart MultipartFile imageFile){
-        try {
-            String result = studentService.SaveOrUpdate(student , imageFile);
-                return new ResponseEntity<>(result,HttpStatus.ACCEPTED);
-        } catch (IOException e)
-        {
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
-
     @PutMapping("/updatestudent")
     public ResponseEntity<?> UpdateStudent(@RequestPart StudentNewTable student , @RequestPart MultipartFile imageFile)
     {
         try {
-            String result = studentService.SaveOrUpdate(student , imageFile);
+            String result = studentService.Update(student , imageFile);
             return new ResponseEntity<>(result,HttpStatus.ACCEPTED);
         } catch (IOException e)
         {

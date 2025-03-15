@@ -43,26 +43,38 @@ public class AdminService {
     }
 
 
-    public String SaveOrUpdate(Admin admin, MultipartFile image) throws IOException {
+    public String Update(Admin admin, MultipartFile image) throws IOException {
+        Admin existingAdmin = adminRepo.findByUsername(admin.getUsername()); // Assuming this method exists
 
+        if (existingAdmin == null) {
+            return "Admin Not Found";
+        }
+
+        existingAdmin.setAddress(admin.getAddress());
+        existingAdmin.setEmail(admin.getEmail());
+        existingAdmin.setName(admin.getName());
+        existingAdmin.setPhoneNo(admin.getPhoneNo());
+
+        if (image != null && !image.isEmpty()) {
+            existingAdmin.setImageName(image.getOriginalFilename());
+            existingAdmin.setImageType(image.getContentType());
+            existingAdmin.setImageData(image.getBytes());
+        }
+
+        adminRepo.save(existingAdmin);
+        return "Updated Successfully";
+
+    }
+
+    public String Delete(String username) {
         for (Admin a : adminRepo.findAll())
         {
-            if (a.getAdminId() == admin.getAdminId())
+            if (a.getUsername() == username)
             {
-                a.setAddress(admin.getAddress());
-                a.setEmail(admin.getEmail());
-                a.setName(admin.getName());
-                a.setPhoneNo(admin.getPhoneNo());
-                a.setImageName(image.getOriginalFilename());
-                a.setImageType(image.getContentType());
-                a.setImageData(image.getBytes());
-                return "Admin Already Found Updated ...";
+                adminRepo.delete(a);
+                return "Deleted";
             }
         }
-        admin.setImageName(image.getOriginalFilename());
-        admin.setImageType(image.getContentType());
-        admin.setImageData(image.getBytes());
-        adminRepo.save(admin);
-        return "Admin Saved";
+        return "Admin Not found";
     }
 }

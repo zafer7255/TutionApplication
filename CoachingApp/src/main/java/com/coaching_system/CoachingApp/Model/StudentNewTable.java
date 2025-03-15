@@ -17,7 +17,10 @@ import java.util.List;
 @Data
 @Scope("prototype")
 public class StudentNewTable {
+
     @Id
+    private String username;
+    private String password;
     private int rollNo;
     private int schoolStandard;
     private String name;
@@ -30,4 +33,5 @@ public class StudentNewTable {
     private String imageType;
     @Lob
     private  byte[] imageData;
+
 }

@@ -10,10 +10,10 @@ import java.util.List;
 
 public class UserPrincipal implements UserDetails {
 
-    private StudentNewTable studentNewTable;
-    public UserPrincipal(StudentNewTable studentNewTable)
+    private Users users;
+    public UserPrincipal(Users users)
     {
-        this.studentNewTable = studentNewTable;
+        this.users = users;
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -21,12 +21,12 @@ public class UserPrincipal implements UserDetails {
     }
     @Override
     public String getPassword() {
-        return studentNewTable.getPassword();
+        return users.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return studentNewTable.getUsername();
+        return users.getUsername();
     }
 
     @Override

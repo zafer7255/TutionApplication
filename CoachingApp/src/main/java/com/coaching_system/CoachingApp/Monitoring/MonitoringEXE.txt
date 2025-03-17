@@ -44,3 +44,9 @@
  Student Method called GetAllStudent CurrentTime 2025-03-15T16:28:51.696497399 Running Fine 
  Student Before Method called GetAllStudent CurrentTime 2025-03-16T02:15:06.399536772
  Student Method called GetAllStudent CurrentTime 2025-03-16T02:15:06.433440473 Running Fine 
+ Student Before Method called GetAllStudent CurrentTime 2025-03-18T00:38:12.232592831
+ Student Method called GetAllStudent CurrentTime 2025-03-18T00:38:12.383675558 Running Fine 
+ Teacher Before Method called GetAllStudent CurrentTime 2025-03-18T01:09:23.919568219
+ Teacher Method called GetAllStudent CurrentTime 2025-03-18T01:09:23.955555208 Running Fine 
+ Teacher Before Method called GetAllStudent CurrentTime 2025-03-18T01:15:04.806647271
+ Teacher Method called GetAllStudent CurrentTime 2025-03-18T01:15:04.852994924 Running Fine 
